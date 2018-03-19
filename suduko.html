@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>SUDUKO</title>
+		<link rel="shortcut icon" href="sudukoicon.jpeg"/>
 		<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -11,16 +12,16 @@
 		<link rel="stylesheet" href="suduko.css">
 		<script src="suduko.js"></script>
 	</head>
-	<body>
+	<body onload="suduko()" id="body">
 		<div class="container">
-			<h2 id="heading">SUDUKO</h2>
+			<h2 id="heading">SUDOKU</h2>
 				<table id="table">
 			  	<tr id="row0">
-			    	<td class="color"><input type="text"  id="r0c0" maxlength="1" size="1" value="2" class="color" disabled></td>
+			    	<td class="color"><input type="text"  id="r0c0" maxlength="1" size="1" class="color" ></td>
 			    	<td class="color"><input type="text"  id="r0c1" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r0c2" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
 			    	<td><input type="text"  maxlength="1" id="r0c3" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r0c4" size="1" onkeyup="check(this.id)" value="4" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r0c4" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  class="" id="r0c5" maxlength="1" onkeyup="check(this.id)" size="1"></td>
 			    	<td class="color"><input type="text"  id="r0c6" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r0c7" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
@@ -29,92 +30,94 @@
 			  	<tr id="row1">
 			    	<td class="color"><input type="text"  id="r1c0" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r1c1" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
-			    	<td class="color"><input type="text"  id="r1c2" class="color" maxlength="1" size="1" onkeyup="check(this.id)" value="1" disabled></td>
-			    	<td><input type="text"  maxlength="1" id="r1c3" size="1" onkeyup="check(this.id)" value="8" disabled></td>
+			    	<td class="color"><input type="text"  id="r1c2" class="color" maxlength="1" size="1" onkeyup="check(this.id)"  ></td>
+			    	<td><input type="text"  maxlength="1" id="r1c3" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r1c4" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r1c5" size="1" onkeyup="check(this.id)" value="5" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r1c5" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td class="color"><input type="text"  id="r1c6" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r1c7" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="2" disabled></td>
+			    	<td class="color"><input type="text"  id="r1c7" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r1c8" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			  	</tr>
 			  	<tr id="row2">
-			    	<td class="color"><input type="text"  id="r2c0" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="8" disabled></td>
-			    	<td class="color"><input type="text"  id="r2c1" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="7" disabled></td>
+			    	<td class="color"><input type="text"  id="r2c0" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
+			    	<td class="color"><input type="text"  id="r2c1" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r2c2" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			    	<td><input type="text"  maxlength="1" id="r2c3" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r2c4" size="1" value="9" disabled onkeyup="check(this.id)"></td>
+			    	<td><input type="text"  maxlength="1" id="r2c4" size="1"   onkeyup="check(this.id)"></td>
 			    	<td><input type="text"  maxlength="1" id="r2c5" size="1" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r2c6" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r2c7" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
-			    	<td class="color"><input type="text"  id="r2c8" class="color" maxlength="1" size="1" onkeyup="check(this.id)" value="3" disabled></td>
+			    	<td class="color"><input type="text"  id="r2c8" class="color" maxlength="1" size="1" onkeyup="check(this.id)"  ></td>
 			  	</tr>
 			  	<tr id="row3">
 			    	<td><input type="text"  maxlength="1" id="r3c0" size="1" onkeyup="check(this.id)"></td>
 			    	<td><input type="text"  maxlength="1" id="r3c1" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r3c2" size="1" onkeyup="check(this.id)" value="7" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r3c2" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td class="color"><input type="text"  id="r3c3" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r3c4" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="5" disabled></td>
+			    	<td class="color"><input type="text"  id="r3c4" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r3c5" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td><input type="text"  maxlength="1" id="r3c6" size="1" onkeyup="check(this.id)" value="2" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r3c6" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r3c7" size="1" onkeyup="check(this.id)"></td>
 			    	<td><input type="text"  maxlength="1" id="r3c8" size="1" onkeyup="check(this.id)"></td>
 			  	</tr>
 			  	<tr id="row4">
 			    	<td><input type="text"  maxlength="1" id="r4c0" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r4c1" size="1" onkeyup="check(this.id)" value="1" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r4c1" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r4c2" size="1" onkeyup="check(this.id)"></td>
-			    	<td class="color"><input type="text"  id="r4c3" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="3" disabled></td>
+			    	<td class="color"><input type="text"  id="r4c3" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r4c4" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r4c5" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="7" disabled></td>
+			    	<td class="color"><input type="text"  id="r4c5" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r4c6" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r4c7" size="1" onkeyup="check(this.id)" value="9" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r4c7" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r4c8" size="1" onkeyup="check(this.id)"></td>
 			  	</tr>
 			  	<tr id="row5">
-			    	<td><input type="text"  maxlength="1" id="r5c0" size="1" onkeyup="check(this.id)" value="5" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r5c0" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r5c1" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r5c2" size="1" onkeyup="check(this.id)" value="9" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r5c2" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td class="color"><input type="text"  id="r5c3" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			    	<td class="color"><input type="text"  id="r5c4" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			    	<td class="color"><input type="text"  id="r5c5" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td><input type="text"  maxlength="1" id="r5c6" size="1" value="7" onkeyup="check(this.id)" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r5c6" size="1"  onkeyup="check(this.id)" ></td>
 			    	<td><input type="text"  maxlength="1" id="r5c7" size="1" onkeyup="check(this.id)"></td>
 			    	<td><input type="text"  maxlength="1" id="r5c8" size="1" onkeyup="check(this.id)"></td>
 			  	</tr>
 			  	<tr id="row6">
-			    	<td class="color"><input type="text"  id="r6c0"  class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="7" disabled></td>
+			    	<td class="color"><input type="text"  id="r6c0"  class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r6c1" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r6c2" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="3" disabled></td>
-			    	<td><input type="text"  maxlength="1" id="r6c3" size="1" value="5" disabled onkeyup="check(this.id)"></td>
+			    	<td class="color"><input type="text"  id="r6c2" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
+			    	<td><input type="text"  maxlength="1" id="r6c3" size="1"   onkeyup="check(this.id)"></td>
 			    	<td><input type="text"  maxlength="1" id="r6c4" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r6c5" size="1" value="4" disabled onkeyup="check(this.id)"></td>
-			    	<td class="color"><input type="text"  id="r6c6" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="1" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r6c5" size="1"   onkeyup="check(this.id)"></td>
+			    	<td class="color"><input type="text"  id="r6c6" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r6c7" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r6c8" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="9" disabled></td>
+			    	<td class="color"><input type="text"  id="r6c8" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			  	</tr>
 			  	<tr id="row7">
 			    	<td class="color"><input type="text"  id="r7c0" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r7c1" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="2" disabled></td>
+			    	<td class="color"><input type="text"  id="r7c1" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r7c2" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			    	<td><input type="text"  maxlength="1" id="r7c3" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r7c4" size="1" onkeyup="check(this.id)" value="7" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r7c4" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r7c5" size="1" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r7c6" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r7c7" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="5" disabled></td>
+			    	<td class="color"><input type="text"  id="r7c7" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r7c8" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			  	</tr>
 			  	<tr id="row8">
-			    	<td class="color"><input type="text"  id="r8c0" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="1" disabled></td>
+			    	<td class="color"><input type="text"  id="r8c0" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r8c1" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
-			    	<td class="color"><input type="text"  id="r8c2" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="4" disabled></td>
+			    	<td class="color"><input type="text"  id="r8c2" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r8c3" size="1" onkeyup="check(this.id)"></td>
-			    	<td><input type="text"  maxlength="1" id="r8c4" size="1" onkeyup="check(this.id)" value="3" disabled></td>
+			    	<td><input type="text"  maxlength="1" id="r8c4" size="1" onkeyup="check(this.id)"  ></td>
 			    	<td><input type="text"  maxlength="1" id="r8c5" size="1" onkeyup="check(this.id)"></td>
-			    	<td class="color"><input type="text"  id="r8c6" class="color" onkeyup="check(this.id)" maxlength="1" size="1" value="6" disabled></td>
+			    	<td class="color"><input type="text"  id="r8c6" class="color" onkeyup="check(this.id)" maxlength="1" size="1"  ></td>
 			    	<td class="color"><input type="text"  id="r8c7" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			    	<td class="color"><input type="text"  id="r8c8" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			  	</tr>
 				</table>
+					<p id="result"></p>
+					<button class="btn" id="restart" onclick="restart()">RESTART</button>
 			</div>
 		</body>
 	</html>

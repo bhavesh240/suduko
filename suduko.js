@@ -1,20 +1,144 @@
 var myarray1 = new Array(9);
 var row = 0;
-var column = 0;;
-var getvalue;
-var get;
+var column = 0,getvalue,get;
+
+
+var suduko1 =[5,3,0,0,7,0,0,0,0,
+              6,0,0,1,9,5,0,0,0,
+              0,9,8,0,0,0,0,6,0,
+              8,0,0,0,6,0,0,0,3,
+              4,0,0,8,0,3,0,0,1,
+              7,0,0,0,2,0,0,0,6,
+              0,6,0,0,0,0,2,8,0,
+              0,0,0,4,1,9,0,0,5,
+              0,0,0,0,8,0,0,7,9];
+              
+              
+var suduko2 =[0,9,6,0,1,8,5,7,4,
+              0,8,4,0,7,0,6,0,3,
+              7,0,3,0,4,5,0,0,9,
+              6,0,5,0,9,0,3,4,1,
+              9,0,1,4,0,6,8,0,7,
+              0,7,0,5,0,0,9,2,6,
+              0,6,0,2,5,0,4,9,8,
+              0,5,0,7,6,0,1,3,2,
+              3,0,2,0,8,0,7,0,5];
+              
+              
+
+var suduko3 =[0,0,0,3,1,0,5,0,4,
+              5,8,0,0,0,2,0,0,0,
+              0,1,0,6,4,0,2,0,9,
+              6,0,5,8,9,7,3,4,1,
+              0,3,0,4,0,6,0,5,7,
+              4,7,0,5,0,1,9,2,6,
+              1,0,7,0,5,3,4,9,8,
+              0,5,0,7,6,4,1,3,2,
+              0,4,0,1,0,9,7,0,0];
+              
+
+var suduko4 =[0,0,0,0,0,0,0,0,0,
+              0,8,4,9,0,2,6,1,0,
+              0,1,3,6,0,5,0,8,0,
+              0,2,5,8,0,7,3,4,0,
+              0,0,0,0,0,0,0,0,0,
+              0,7,8,5,0,1,9,2,0,
+              0,6,0,2,0,3,4,9,0,
+              0,5,9,7,0,4,1,3,0,
+              0,0,0,0,0,0,0,0,0];
+              
+
+var suduko5 =[2,0,0,0,1,8,5,0,4,
+              5,8,4,0,7,0,6,1,3,
+              7,1,3,0,4,5,2,0,9,
+              6,2,0,0,9,0,3,4,1,
+              9,3,0,0,5,6,8,5,7,
+              4,0,8,0,3,1,9,2,0,
+              0,0,7,0,0,0,0,0,8,
+              8,0,0,0,6,0,1,0,2,
+              3,0,0,1,0,9,7,0,5];
+              
+
+
+var suduko6 =[1,0,2,4,8,0,3,7,6,
+              7,3,0,2,0,6,0,4,1,
+              4,6,8,0,0,1,2,9,5,
+              0,8,0,1,2,4,6,5,9,
+              0,9,1,0,6,0,0,2,8,
+              2,0,0,8,0,0,7,1,3,
+              0,1,0,6,0,7,5,8,2,
+              6,2,5,0,4,0,1,3,7,
+              0,0,0,5,1,0,9,6,4];
+              
+
+var suduko7 =[0,5,0,0,8,0,3,0,6,
+              7,3,0,2,0,6,0,4,0,
+              0,6,0,3,7,0,2,9,5,
+              3,8,7,0,2,4,0,0,9,
+              0,9,0,7,0,3,4,2,8,
+              2,4,0,8,0,5,0,1,3,
+              9,0,4,6,3,7,5,8,2,
+              6,0,0,9,0,8,0,0,7,
+              8,0,0,0,1,0,9,0,4];
+              
+var suduko8 =[1,0,2,4,8,9,3,7,6,
+              0,3,0,2,0,0,0,4,1,
+              0,6,0,0,7,1,2,9,5,
+              3,8,0,1,0,0,6,5,9,
+              0,9,1,7,6,0,4,2,8,
+              2,0,0,8,9,5,0,1,3,
+              0,1,4,6,0,7,5,0,2,
+              6,0,0,9,4,8,1,0,7,
+              0,0,3,0,1,0,9,0,0];
+              
+
+
+var suduko9= [0,4,2,0,6,1,0,5,3,
+              3,8,7,5,0,0,0,4,1,
+              0,1,0,8,0,4,2,0,7,
+              2,6,0,1,0,7,5,8,9,
+              0,7,0,9,0,5,3,0,4,
+              4,5,9,0,8,0,1,7,2,
+              0,0,0,2,1,8,4,3,0,
+              0,2,0,4,0,3,9,0,6,
+              0,3,0,6,5,0,7,2,8];
+              
+              
+var suduko10 = [9,0,2,7,0,1,0,5,3,
+                3,8,0,5,0,2,0,4,0,
+                0,1,0,8,3,4,0,9,7,
+                2,0,0,1,0,7,5,8,9,
+                0,7,1,0,0,5,3,6,0,
+                0,5,9,0,8,0,1,7,2,
+                7,9,0,2,1,0,0,3,0,
+                0,0,8,0,0,3,9,1,6,
+                0,0,4,0,5,0,0,0,8];              
+
+
+
+var suduko11 = [0,4,2,0,0,1,0,5,0,
+                3,0,0,5,0,2,6,0,1,
+                6,1,0,8,3,4,0,9,7,
+                0,6,0,0,4,0,5,8,9,
+                0,7,1,9,0,5,3,6,4,
+                4,0,9,0,0,0,0,7,2,
+                7,9,0,2,1,8,0,3,5,
+                0,0,8,4,7,3,9,0,6,
+                0,3,0,6,0,9,0,2,0];              
+
 
 function check(getid){ // main function  to run on every keyup event
-	getvalue = getid ;  
-  got = document.getElementById(getvalue).value; 
+  getvalue = getid ;  
+  var got = document.getElementById(getvalue).value; 
   if((got > '0')&&(got <= '9')){
     get = Number(document.getElementById(getvalue).value); 
     arrayindex();
     findrc();
     crosscheck();
+    checkgame();
   }
   else{
-  	document.getElementById(getvalue).value = "";
+    document.getElementById(getvalue).value = "";
   }
 }
 
@@ -49,17 +173,51 @@ function arrayindex(){
 
     myarray1[8][0] = "r8c0"; myarray1[8][1] = "r8c1"; myarray1[8][2] = "r8c2"; myarray1[8][3] = "r8c3"; myarray1[8][4] = "r8c4";
     myarray1[8][5] = "r8c5"; myarray1[8][6] = "r8c6"; myarray1[8][7] = "r8c7"; myarray1[8][8] = "r8c8";
-
 	}
 
-function crosscheck(){ 
-var c= 0 ;
-	for(var i=row;i<=row;i++){
+
+function suduko(){
+
+  arrayindex();
+  var counter = 0;
+  var sudukoarray =[suduko1,suduko2,suduko3,suduko4,suduko5,suduko6,suduko7,suduko8,suduko9,suduko10,suduko11];
+  var r = Math.abs(Math.floor(Math.random()*9)+1);
+  var arrayprint = sudukoarray[r];
+    for(var i=0;i<9;i++){
+      for(var j=0;j<9;j++){
+        if(arrayprint[counter] == 0){
+          document.getElementById(myarray1[i][j]).value = "";
+          counter++;
+        }
+        else{
+          document.getElementById(myarray1[i][j]).value = arrayprint[counter];
+          document.getElementById(myarray1[i][j]).disabled = true;
+          counter++;
+        } 
+      }
+    }
+}
+
+function findrc(){ //function to find row and column of the selected input field
+	for(var i=0;i<9;i++){
   	for(var j=0;j<9;j++){
-    	var a = Number(document.getElementById(myarray1[i][j]).value);
+    	if(myarray1[i][j] === getvalue){
+      	row = i;
+        column = j;
+        break;
+      }
+    }
+  }
+}
+
+function crosscheck(){ 
+  var c= 0 ;
+	for(var i=row;i<=row;i++){
+    for(var j=0;j<9;j++){
+      var a = Number(document.getElementById(myarray1[i][j]).value);
       var b = Number(document.getElementById(myarray1[j][column]).value);    
-      	if(get == a){
-        	c++;
+        if(get == a){
+          c++;
         }
         if(get == b){
         	c++;
@@ -164,36 +322,45 @@ var c= 0 ;
   }
 }
 
-
-function findrc(){ //function to find row and column of the selected input field
-	for(var i=0;i<9;i++){
-  	for(var j=0;j<9;j++){
-    	if(myarray1[i][j] === getvalue){
-      	row = i;
-        column = j;
-        break;
-      }
+function checkgame(){
+  arrayindex();
+  var correct = false;
+  var sum =0;
+  for(var i=0;i<9;i++){
+    for(var j=0;j<9;j++){
+      sum+=Number(document.getElementById(myarray1[i][j]).value);
+        if((document.getElementById(myarray1[i][j]).style.color != 'red')&&(Number(document.getElementById(myarray1[i][j]).value) != 0)){
+          correct = true;
+        }
+        else{
+          correct = false;
+        }
     }
+  }
+
+  if((sum == 405)&&(correct == true)){ 
+    result();
   }
 }
 
 
 
+function result(){
+  arrayindex();
+    for(var i=0;i<9;i++){
+      for(var j=0;j<9;j++){
+        document.getElementById(myarray1[i][j]).disabled = true;
+      }
+    }
+        document.getElementById("table").setAttribute("style","opacity:0.3;");
+        document.getElementById("heading").setAttribute("style","opacity:1;");
+        document.getElementById("result").setAttribute("style","display : inline;");
+        document.getElementById("result").innerHTML = "GAME WON";
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function restart(){
+  window.open("suduko.html","_self");
+}
 
 
 
