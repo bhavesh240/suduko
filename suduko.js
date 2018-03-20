@@ -1,151 +1,29 @@
 var myarray1 = new Array(9);
 var row = 0;
 var column = 0,getvalue,get;
-
-
-var suduko1 =[5,3,0,0,7,0,0,0,0,
-              6,0,0,1,9,5,0,0,0,
-              0,9,8,0,0,0,0,6,0,
-              8,0,0,0,6,0,0,0,3,
-              4,0,0,8,0,3,0,0,1,
-              7,0,0,0,2,0,0,0,6,
-              0,6,0,0,0,0,2,8,0,
-              0,0,0,4,1,9,0,0,5,
-              0,0,0,0,8,0,0,7,9];
-              
-              
-var suduko2 =[0,9,6,0,1,8,5,7,4,
-              0,8,4,0,7,0,6,0,3,
-              7,0,3,0,4,5,0,0,9,
-              6,0,5,0,9,0,3,4,1,
-              9,0,1,4,0,6,8,0,7,
-              0,7,0,5,0,0,9,2,6,
-              0,6,0,2,5,0,4,9,8,
-              0,5,0,7,6,0,1,3,2,
-              3,0,2,0,8,0,7,0,5];
-              
-              
-
-var suduko3 =[0,0,0,3,1,0,5,0,4,
-              5,8,0,0,0,2,0,0,0,
-              0,1,0,6,4,0,2,0,9,
-              6,0,5,8,9,7,3,4,1,
-              0,3,0,4,0,6,0,5,7,
-              4,7,0,5,0,1,9,2,6,
-              1,0,7,0,5,3,4,9,8,
-              0,5,0,7,6,4,1,3,2,
-              0,4,0,1,0,9,7,0,0];
-              
-
-var suduko4 =[0,0,0,0,0,0,0,0,0,
-              0,8,4,9,0,2,6,1,0,
-              0,1,3,6,0,5,0,8,0,
-              0,2,5,8,0,7,3,4,0,
-              0,0,0,0,0,0,0,0,0,
-              0,7,8,5,0,1,9,2,0,
-              0,6,0,2,0,3,4,9,0,
-              0,5,9,7,0,4,1,3,0,
-              0,0,0,0,0,0,0,0,0];
-              
-
-var suduko5 =[2,0,0,0,1,8,5,0,4,
-              5,8,4,0,7,0,6,1,3,
-              7,1,3,0,4,5,2,0,9,
-              6,2,0,0,9,0,3,4,1,
-              9,3,0,0,5,6,8,5,7,
-              4,0,8,0,3,1,9,2,0,
-              0,0,7,0,0,0,0,0,8,
-              8,0,0,0,6,0,1,0,2,
-              3,0,0,1,0,9,7,0,5];
-              
-
-
-var suduko6 =[1,0,2,4,8,0,3,7,6,
-              7,3,0,2,0,6,0,4,1,
-              4,6,8,0,0,1,2,9,5,
-              0,8,0,1,2,4,6,5,9,
-              0,9,1,0,6,0,0,2,8,
-              2,0,0,8,0,0,7,1,3,
-              0,1,0,6,0,7,5,8,2,
-              6,2,5,0,4,0,1,3,7,
-              0,0,0,5,1,0,9,6,4];
-              
-
-var suduko7 =[0,5,0,0,8,0,3,0,6,
-              7,3,0,2,0,6,0,4,0,
-              0,6,0,3,7,0,2,9,5,
-              3,8,7,0,2,4,0,0,9,
-              0,9,0,7,0,3,4,2,8,
-              2,4,0,8,0,5,0,1,3,
-              9,0,4,6,3,7,5,8,2,
-              6,0,0,9,0,8,0,0,7,
-              8,0,0,0,1,0,9,0,4];
-              
-var suduko8 =[1,0,2,4,8,9,3,7,6,
-              0,3,0,2,0,0,0,4,1,
-              0,6,0,0,7,1,2,9,5,
-              3,8,0,1,0,0,6,5,9,
-              0,9,1,7,6,0,4,2,8,
-              2,0,0,8,9,5,0,1,3,
-              0,1,4,6,0,7,5,0,2,
-              6,0,0,9,4,8,1,0,7,
-              0,0,3,0,1,0,9,0,0];
-              
-
-
-var suduko9= [0,4,2,0,6,1,0,5,3,
-              3,8,7,5,0,0,0,4,1,
-              0,1,0,8,0,4,2,0,7,
-              2,6,0,1,0,7,5,8,9,
-              0,7,0,9,0,5,3,0,4,
-              4,5,9,0,8,0,1,7,2,
-              0,0,0,2,1,8,4,3,0,
-              0,2,0,4,0,3,9,0,6,
-              0,3,0,6,5,0,7,2,8];
-              
-              
-var suduko10 = [9,0,2,7,0,1,0,5,3,
-                3,8,0,5,0,2,0,4,0,
-                0,1,0,8,3,4,0,9,7,
-                2,0,0,1,0,7,5,8,9,
-                0,7,1,0,0,5,3,6,0,
-                0,5,9,0,8,0,1,7,2,
-                7,9,0,2,1,0,0,3,0,
-                0,0,8,0,0,3,9,1,6,
-                0,0,4,0,5,0,0,0,8];              
-
-
-
-var suduko11 = [0,4,2,0,0,1,0,5,0,
-                3,0,0,5,0,2,6,0,1,
-                6,1,0,8,3,4,0,9,7,
-                0,6,0,0,4,0,5,8,9,
-                0,7,1,9,0,5,3,6,4,
-                4,0,9,0,0,0,0,7,2,
-                7,9,0,2,1,8,0,3,5,
-                0,0,8,4,7,3,9,0,6,
-                0,3,0,6,0,9,0,2,0];              
-
+var sec = 0;
+var minute = 0;
+var hour = 0;
+var difficult = 9;
 
 function check(getid){ // main function  to run on every keyup event
   getvalue = getid ;  
   var got = document.getElementById(getvalue).value; 
-  if((got > '0')&&(got <= '9')){
-    get = Number(document.getElementById(getvalue).value); 
-    arrayindex();
-    findrc();
-    crosscheck();
-    checkgame();
-  }
-  else{
-    document.getElementById(getvalue).value = "";
-  }
+    if((got > '0')&&(got <= '9')){
+      get = Number(document.getElementById(getvalue).value); 
+      arrayindex();
+      findrc();
+      crosscheck();
+      checkgame();
+    }
+    else{
+      document.getElementById(getvalue).value = "";
+    }
 }
 
 function arrayindex(){
-
-	for(var i=0;i<9;i++) //create 2-D array of input ids
-  	myarray1[i] = new Array(9);
+  for(var i=0;i<9;i++) //create 2-D array of input ids
+    myarray1[i] = new Array(9);
      
     myarray1[0][0] = "r0c0"; myarray1[0][1] = "r0c1"; myarray1[0][2] = "r0c2"; myarray1[0][3] = "r0c3"; myarray1[0][4] = "r0c4";
     myarray1[0][5] = "r0c5"; myarray1[0][6] = "r0c6"; myarray1[0][7] = "r0c7"; myarray1[0][8] = "r0c8";
@@ -175,9 +53,7 @@ function arrayindex(){
     myarray1[8][5] = "r8c5"; myarray1[8][6] = "r8c6"; myarray1[8][7] = "r8c7"; myarray1[8][8] = "r8c8";
 	}
 
-
 function suduko(){
-
   arrayindex();
   var counter = 0;
   var sudukoarray =[suduko1,suduko2,suduko3,suduko4,suduko5,suduko6,suduko7,suduko8,suduko9,suduko10,suduko11];
@@ -199,10 +75,10 @@ function suduko(){
 }
 
 function findrc(){ //function to find row and column of the selected input field
-	for(var i=0;i<9;i++){
-  	for(var j=0;j<9;j++){
-    	if(myarray1[i][j] === getvalue){
-      	row = i;
+  for(var i=0;i<9;i++){
+    for(var j=0;j<9;j++){
+      if(myarray1[i][j] === getvalue){
+        row = i;
         column = j;
         break;
       }
@@ -340,31 +216,246 @@ function checkgame(){
 
   if((sum == 405)&&(correct == true)){ 
     result();
+    disableall();
   }
 }
 
-
-
 function result(){
   arrayindex();
-    for(var i=0;i<9;i++){
-      for(var j=0;j<9;j++){
-        document.getElementById(myarray1[i][j]).disabled = true;
-      }
+  var stophour = hour;
+  var stopminute = minute;
+  var stopsec = sec;
+  
+  for(var i=0;i<9;i++){
+    for(var j=0;j<9;j++){
+      document.getElementById(myarray1[i][j]).disabled = true;
     }
-        document.getElementById("table").setAttribute("style","opacity:0.3;");
-        document.getElementById("heading").setAttribute("style","opacity:1;");
-        document.getElementById("result").setAttribute("style","display : inline;");
-        document.getElementById("result").innerHTML = "GAME WON";
+  }
+      document.getElementById("table").setAttribute("style","opacity:0.3;");
+      document.getElementById("heading").setAttribute("style","opacity:1;");
+      document.getElementById("result").setAttribute("style","display : inline;");
+      document.getElementById("result").innerHTML = "GAME WON";
+      document.getElementById("stoptimer").innerHTML = "TIME: "+stophour+":"+stopminute+":"+stopsec;
+      document.getElementById("stoptimer").setAttribute("style","display : inline;");
+      document.getElementById("time").setAttribute("style","display : none;");
 }
 
 function restart(){
   window.open("suduko.html","_self");
 }
 
+function generatesuduko(){  // function to generate random suduko
+
+ var firstrow1 = [3,1,5,8,2,7,4,6,9];
+ var firstrow2 = [1,4,7,8,5,2,3,6,9];
+ var firstrow3 = [1,5,9,7,3,4,6,2,8];
+ 
+ var firstrow4 = [9,1,8,2,3,7,4,5,6];
+ var firstrow5 = [9,8,7,4,5,6,3,2,1];
+ var firstrow6 = [1,2,3,4,5,6,7,8,9];
+
+ var firstrow7 = [7,4,1,2,3,6,9,8,5];
+ var firstrow8 = [1,4,7,8,9,6,3,2,5];
+ var firstrow9 = [9,8,7,3,2,1,4,5,6];
+ 
+  
+ var suduko1 = [firstrow1,firstrow2,firstrow3,firstrow4,firstrow5,firstrow6,firstrow7,firstrow8,firstrow9];
+  
+ var selectsuduko = suduko1[Math.abs(Math.floor(Math.random()*7))];
+ 
+ var suduko = new Array(9);
+ var randomcounter = Math.abs(Math.floor(Math.random()*8));
+ 
+  for(var i=0;i<9;i++){
+    if(randomcounter == 9){
+      randomcounter = 0;
+    }
+      suduko[i] = selectsuduko[randomcounter];
+      randomcounter++;
+  }
+  
+  document.getElementById("r0c0").value = suduko[0];
+  document.getElementById("r0c1").value = suduko[1];
+  document.getElementById("r0c2").value = suduko[2];
+  document.getElementById("r0c3").value = suduko[3];
+  document.getElementById("r0c4").value = suduko[4];
+  document.getElementById("r0c5").value = suduko[5];
+  document.getElementById("r0c6").value = suduko[6];
+  document.getElementById("r0c7").value = suduko[7];
+  document.getElementById("r0c8").value = suduko[8];
+ 
+  document.getElementById("r1c0").value = document.getElementById("r0c3").value;
+  document.getElementById("r1c1").value = document.getElementById("r0c4").value;
+  document.getElementById("r1c2").value = document.getElementById("r0c5").value;
+  document.getElementById("r1c3").value = document.getElementById("r0c6").value;
+  document.getElementById("r1c4").value = document.getElementById("r0c7").value;
+  document.getElementById("r1c5").value = document.getElementById("r0c8").value;
+  document.getElementById("r1c6").value = document.getElementById("r0c0").value;
+  document.getElementById("r1c7").value = document.getElementById("r0c1").value;
+  document.getElementById("r1c8").value = document.getElementById("r0c2").value;
+ 
+  document.getElementById("r2c0").value = document.getElementById("r0c6").value;
+  document.getElementById("r2c1").value = document.getElementById("r0c7").value;
+  document.getElementById("r2c2").value = document.getElementById("r0c8").value;
+  document.getElementById("r2c3").value = document.getElementById("r0c0").value;
+  document.getElementById("r2c4").value = document.getElementById("r0c1").value;
+  document.getElementById("r2c5").value = document.getElementById("r0c2").value;
+  document.getElementById("r2c6").value = document.getElementById("r0c3").value;
+  document.getElementById("r2c7").value = document.getElementById("r0c4").value;
+  document.getElementById("r2c8").value = document.getElementById("r0c5").value;
+ 
+  document.getElementById("r3c0").value = document.getElementById("r0c7").value;
+  document.getElementById("r3c1").value = document.getElementById("r0c8").value;
+  document.getElementById("r3c2").value = document.getElementById("r0c0").value;
+  document.getElementById("r3c3").value = document.getElementById("r0c1").value;
+  document.getElementById("r3c4").value = document.getElementById("r0c2").value;
+  document.getElementById("r3c5").value = document.getElementById("r0c3").value;
+  document.getElementById("r3c6").value = document.getElementById("r0c4").value;
+  document.getElementById("r3c7").value = document.getElementById("r0c5").value;
+  document.getElementById("r3c8").value = document.getElementById("r0c6").value;
+ 
+  document.getElementById("r4c0").value = document.getElementById("r0c1").value;
+  document.getElementById("r4c1").value = document.getElementById("r0c2").value;
+  document.getElementById("r4c2").value = document.getElementById("r0c3").value;
+  document.getElementById("r4c3").value = document.getElementById("r0c4").value;
+  document.getElementById("r4c4").value = document.getElementById("r0c5").value;
+  document.getElementById("r4c5").value = document.getElementById("r0c6").value;
+  document.getElementById("r4c6").value = document.getElementById("r0c7").value;
+  document.getElementById("r4c7").value = document.getElementById("r0c8").value;
+  document.getElementById("r4c8").value = document.getElementById("r0c0").value;
+   
+  document.getElementById("r5c0").value = document.getElementById("r0c4").value;
+  document.getElementById("r5c1").value = document.getElementById("r0c5").value;
+  document.getElementById("r5c2").value = document.getElementById("r0c6").value;
+  document.getElementById("r5c3").value = document.getElementById("r0c7").value;
+  document.getElementById("r5c4").value = document.getElementById("r0c8").value;
+  document.getElementById("r5c5").value = document.getElementById("r0c0").value;
+  document.getElementById("r5c6").value = document.getElementById("r0c1").value;
+  document.getElementById("r5c7").value = document.getElementById("r0c2").value;
+  document.getElementById("r5c8").value = document.getElementById("r0c3").value;
+
+  document.getElementById("r6c0").value = document.getElementById("r0c5").value;
+  document.getElementById("r6c1").value = document.getElementById("r0c6").value;
+  document.getElementById("r6c2").value = document.getElementById("r0c7").value;
+  document.getElementById("r6c3").value = document.getElementById("r0c8").value;
+  document.getElementById("r6c4").value = document.getElementById("r0c0").value;
+  document.getElementById("r6c5").value = document.getElementById("r0c1").value;
+  document.getElementById("r6c6").value = document.getElementById("r0c2").value;
+  document.getElementById("r6c7").value = document.getElementById("r0c3").value;
+  document.getElementById("r6c8").value = document.getElementById("r0c4").value;
+  
+  document.getElementById("r7c0").value = document.getElementById("r0c8").value;
+  document.getElementById("r7c1").value = document.getElementById("r0c0").value;
+  document.getElementById("r7c2").value = document.getElementById("r0c1").value;
+  document.getElementById("r7c3").value = document.getElementById("r0c2").value;
+  document.getElementById("r7c4").value = document.getElementById("r0c3").value;
+  document.getElementById("r7c5").value = document.getElementById("r0c4").value;
+  document.getElementById("r7c6").value = document.getElementById("r0c5").value;
+  document.getElementById("r7c7").value = document.getElementById("r0c6").value;
+  document.getElementById("r7c8").value = document.getElementById("r0c7").value;
+ 
+  document.getElementById("r8c0").value = document.getElementById("r0c2").value;
+  document.getElementById("r8c1").value = document.getElementById("r0c3").value;
+  document.getElementById("r8c2").value = document.getElementById("r0c4").value;
+  document.getElementById("r8c3").value = document.getElementById("r0c5").value;
+  document.getElementById("r8c4").value = document.getElementById("r0c6").value;
+  document.getElementById("r8c5").value = document.getElementById("r0c7").value;
+  document.getElementById("r8c6").value = document.getElementById("r0c8").value;
+  document.getElementById("r8c7").value = document.getElementById("r0c0").value;
+  document.getElementById("r8c8").value = document.getElementById("r0c1").value;
+ 
+  arrayindex();
+  disableall();
+  
+  for(var i=0;i<9;i++){
+    for(var j=0;j<difficulty;j++){
+      var randomnumber1 = Math.abs(Math.floor(Math.random()*9)); 
+      var randomnumber2 = Math.abs(Math.floor(Math.random()*9));
+      document.getElementById(myarray1[randomnumber1][randomnumber2]).value = '';
+    }
+  } 
+}
+
+
+function checkposition(){ //function to disable some inputs
+  arrayindex();
+  for(var i=0;i<9;i++){
+    for(var j=0;j<9;j++){
+      if(document.getElementById(myarray1[i][j]).value != ''){
+        document.getElementById(myarray1[i][j]).disabled = true;
+      }
+      else{
+        document.getElementById(myarray1[i][j]).disabled = false;
+      }
+    }
+  }
+}
+
+function myTimer(){
+	if(sec>=60){
+  	sec=0;
+    minute++;
+  }
+  if(minute>=60){
+    minute = 0;
+    hour++;
+  }
+  document.getElementById("time").innerHTML = "Time: "+hour+":"+minute+":"+sec;
+  sec++;
+  setTimeout(myTimer,1000);
+}
 
 
 
+function easylevel(){
+   difficulty = Math.abs(Math.floor(Math.random()*3)+1);
+   generatesuduko();
+   checkposition(); 
+   document.getElementById("easybtn").disabled = true; 
+   document.getElementById("mediumbtn").disabled = true;
+   document.getElementById("hardbtn").disabled = true;
+   document.getElementById("levelheading").setAttribute("style","opacity : 0.2;");
+   myTimer();
+   document.getElementById("hint").setAttribute("style","display : inline;");
+}
+
+function mediumlevel(){
+  difficulty = 9;
+  var medium = Math.abs(Math.floor(Math.random()*3));
+  difficulty = Math.abs(difficulty-medium);
+  generatesuduko();
+  checkposition();
+  document.getElementById("easybtn").disabled = true;
+  document.getElementById("mediumbtn").disabled = true;
+  document.getElementById("hardbtn").disabled = true;
+  document.getElementById("levelheading").setAttribute("style","opacity : 0.2;");
+  myTimer();
+}
+
+function hardlevel(){
+  difficulty = 15;
+  var medium = Math.abs(Math.floor(Math.random()*3));
+  difficulty = Math.abs(difficulty-medium);
+  generatesuduko();
+  checkposition();
+  document.getElementById("mediumbtn").disabled = true;
+  document.getElementById("easybtn").disabled = true;
+  document.getElementById("hardbtn").disabled = true;
+  document.getElementById("levelheading").setAttribute("style","opacity : 0.2;");
+  myTimer();
+}
+
+
+
+function disableall(){
+ arrayindex();
+  for(var i=0;i<9;i++){
+    for(var j=0;j<9;j++){
+      document.getElementById(myarray1[i][j]).disabled = true;
+    }
+  }
+
+}
 
 
 

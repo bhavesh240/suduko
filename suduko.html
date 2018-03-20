@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="suduko.css">
 		<script src="suduko.js"></script>
 	</head>
-	<body onload="suduko()" id="body">
+	<body onload="generatesuduko()" id="body">
 		<div class="container">
 			<h2 id="heading">SUDOKU</h2>
 				<table id="table">
@@ -116,8 +116,25 @@
 			    	<td class="color"><input type="text"  id="r8c8" class="color" onkeyup="check(this.id)" maxlength="1" size="1"></td>
 			  	</tr>
 				</table>
+				  <p id="tagline">Mind Game</p>
 					<p id="result"></p>
-					<button class="btn" id="restart" onclick="restart()">RESTART</button>
+					<p id="time">Time: 0:0:0</p>
+					<p id="stoptimer"></p>
+					<div id="difficulty">
+					  <ul id="level">
+					    <li><h3 id="levelheading">SELECT LEVEL</h3></li>
+					    <li><button class="btn" id="easybtn" onclick="easylevel()">EASY</button></li><br>
+					    <li><button class="btn" id="mediumbtn" onclick="mediumlevel()">MEDIUM</button></li><br>
+					    <li><button class="btn" id="hardbtn" onclick="hardlevel()">HARD</button></li>
+					  </ul>
+					</div>
+					<div id="rules">
+					  <p id="ruleheading">Rules To Remember</p>
+					  <p>1.Every row/column must contain 1-9 digits only</p>
+					  <p>2.No vertical/horizontal row should contain duplicate digits</p>
+					  <p>3.Every 3X3 Grid must contain non-duplicate digits</p>
+					</div>
+						<button class="btn" id="restart" onclick="restart()">RESTART</button>
 			</div>
 		</body>
 	</html>
