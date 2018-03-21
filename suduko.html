@@ -17,7 +17,7 @@
 			<h2 id="heading">SUDOKU</h2>
 				<table id="table">
 			  	<tr id="row0">
-			    	<td class="color"><input type="text"  id="r0c0" maxlength="1" size="1" class="color" ></td>
+			    	<td class="color"><input type="text"  id="r0c0" maxlength="1" size="1" class="color" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r0c1" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
 			    	<td class="color"><input type="text"  id="r0c2" class="color" maxlength="1" size="1" onkeyup="check(this.id)"></td>
 			    	<td><input type="text"  maxlength="1" id="r0c3" size="1" onkeyup="check(this.id)"></td>
@@ -134,7 +134,8 @@
 					  <p>2.No vertical/horizontal row should contain duplicate digits</p>
 					  <p>3.Every 3X3 Grid must contain non-duplicate digits</p>
 					</div>
-						<button class="btn" id="restart" onclick="restart()">RESTART</button>
+					<button class="btn" id="restart" onclick="restart()">RESTART</button>
+					<button class="btn" id="hint" onclick="printsolution()">Hint</button>
 			</div>
 		</body>
 	</html>

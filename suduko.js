@@ -5,6 +5,8 @@ var sec = 0;
 var minute = 0;
 var hour = 0;
 var difficult = 9;
+var mainsolutionarray = new Array(9);
+var solutionarray = new Array(9);
 
 function check(getid){ // main function  to run on every keyup event
   getvalue = getid ;  
@@ -213,7 +215,6 @@ function checkgame(){
         }
     }
   }
-
   if((sum == 405)&&(correct == true)){ 
     result();
     disableall();
@@ -238,34 +239,28 @@ function result(){
       document.getElementById("stoptimer").innerHTML = "TIME: "+stophour+":"+stopminute+":"+stopsec;
       document.getElementById("stoptimer").setAttribute("style","display : inline;");
       document.getElementById("time").setAttribute("style","display : none;");
+      document.getElementById("hint").setAttribute("style","display : none;");
 }
 
-function restart(){
+function restart(){ //function to reload webpage
   window.open("suduko.html","_self");
 }
 
 function generatesuduko(){  // function to generate random suduko
-
  var firstrow1 = [3,1,5,8,2,7,4,6,9];
  var firstrow2 = [1,4,7,8,5,2,3,6,9];
  var firstrow3 = [1,5,9,7,3,4,6,2,8];
- 
  var firstrow4 = [9,1,8,2,3,7,4,5,6];
  var firstrow5 = [9,8,7,4,5,6,3,2,1];
  var firstrow6 = [1,2,3,4,5,6,7,8,9];
-
  var firstrow7 = [7,4,1,2,3,6,9,8,5];
  var firstrow8 = [1,4,7,8,9,6,3,2,5];
  var firstrow9 = [9,8,7,3,2,1,4,5,6];
  
-  
  var suduko1 = [firstrow1,firstrow2,firstrow3,firstrow4,firstrow5,firstrow6,firstrow7,firstrow8,firstrow9];
-  
  var selectsuduko = suduko1[Math.abs(Math.floor(Math.random()*7))];
- 
  var suduko = new Array(9);
  var randomcounter = Math.abs(Math.floor(Math.random()*8));
- 
   for(var i=0;i<9;i++){
     if(randomcounter == 9){
       randomcounter = 0;
@@ -273,7 +268,6 @@ function generatesuduko(){  // function to generate random suduko
       suduko[i] = selectsuduko[randomcounter];
       randomcounter++;
   }
-  
   document.getElementById("r0c0").value = suduko[0];
   document.getElementById("r0c1").value = suduko[1];
   document.getElementById("r0c2").value = suduko[2];
@@ -362,11 +356,10 @@ function generatesuduko(){  // function to generate random suduko
   document.getElementById("r8c5").value = document.getElementById("r0c7").value;
   document.getElementById("r8c6").value = document.getElementById("r0c8").value;
   document.getElementById("r8c7").value = document.getElementById("r0c0").value;
-  document.getElementById("r8c8").value = document.getElementById("r0c1").value;
- 
+  document.getElementById("r8c8").value = document.getElementById("r0c1").value; 
   arrayindex();
   disableall();
-  
+  solution();
   for(var i=0;i<9;i++){
     for(var j=0;j<difficulty;j++){
       var randomnumber1 = Math.abs(Math.floor(Math.random()*9)); 
@@ -375,7 +368,6 @@ function generatesuduko(){  // function to generate random suduko
     }
   } 
 }
-
 
 function checkposition(){ //function to disable some inputs
   arrayindex();
@@ -405,18 +397,16 @@ function myTimer(){
   setTimeout(myTimer,1000);
 }
 
-
-
 function easylevel(){
-   difficulty = Math.abs(Math.floor(Math.random()*3)+1);
-   generatesuduko();
-   checkposition(); 
-   document.getElementById("easybtn").disabled = true; 
-   document.getElementById("mediumbtn").disabled = true;
-   document.getElementById("hardbtn").disabled = true;
-   document.getElementById("levelheading").setAttribute("style","opacity : 0.2;");
-   myTimer();
-   document.getElementById("hint").setAttribute("style","display : inline;");
+  difficulty = Math.abs(Math.floor(Math.random()*3)+1);
+  generatesuduko();
+  checkposition(); 
+  document.getElementById("easybtn").disabled = true; 
+  document.getElementById("mediumbtn").disabled = true;
+  document.getElementById("hardbtn").disabled = true;
+  document.getElementById("levelheading").setAttribute("style","opacity : 0.2;");
+  myTimer();
+  document.getElementById("hint").setAttribute("style","display : inline;");
 }
 
 function mediumlevel(){
@@ -430,6 +420,7 @@ function mediumlevel(){
   document.getElementById("hardbtn").disabled = true;
   document.getElementById("levelheading").setAttribute("style","opacity : 0.2;");
   myTimer();
+  document.getElementById("hint").setAttribute("style","display : inline;");
 }
 
 function hardlevel(){
@@ -443,29 +434,64 @@ function hardlevel(){
   document.getElementById("hardbtn").disabled = true;
   document.getElementById("levelheading").setAttribute("style","opacity : 0.2;");
   myTimer();
+  document.getElementById("hint").setAttribute("style","display : inline;");
 }
 
-
-
 function disableall(){
- arrayindex();
+  arrayindex();
   for(var i=0;i<9;i++){
     for(var j=0;j<9;j++){
       document.getElementById(myarray1[i][j]).disabled = true;
     }
   }
-
 }
 
+function solution(){
+  var text2 = "";
+  arrayindex();
+  for(var i=0;i<9;i++){
+    solutionarray[i] = new Array(9);    
+    for(var j=0;j<9;j++){
+      solutionarray[i][j] = document.getElementById(myarray1[i][j]).value;
+    }    
+    text2 = text2+solutionarray[i]+"\n";
+    mainsolutionarray[i] = solutionarray[i];
+  }
+}
 
+function printsolution(){
+  var text = "";
+  for(var i=0;i<9;i++){
+    text = text+mainsolutionarray[i]+"<br>";
+  }
+  showhint();
+  setTimeout(killhint,1000);
+}
 
+function showhint(){
+  arrayindex();
+  for(var i=0;i<9;i++){
+    for(var j=0;j<9;j++){
+      if((document.getElementById(myarray1[i][j]).value == '')||(document.getElementById(myarray1[i][j]).style.color == "red")){
+        document.getElementById(myarray1[i][j]).value = solutionarray[i][j];
+        document.getElementById(myarray1[i][j]).setAttribute("style","color : brown;");
+        document.getElementById(myarray1[i][j]).disabled = true;
+      }
+    }
+  }
+}
 
-
-
-
-
-
-
+function killhint(){
+  arrayindex();
+  for(var i=0;i<9;i++){
+    for(var j=0;j<9;j++){
+      if(document.getElementById(myarray1[i][j]).style.color == "brown"){
+        document.getElementById(myarray1[i][j]).value = '';
+        document.getElementById(myarray1[i][j]).disabled = false;
+      }
+    }
+  }
+}
 
 
 
