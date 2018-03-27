@@ -240,6 +240,7 @@ function result(){
       document.getElementById("stoptimer").setAttribute("style","display : inline;");
       document.getElementById("time").setAttribute("style","display : none;");
       document.getElementById("hint").setAttribute("style","display : none;");
+      document.getElementById("rules").setAttribute("style","display : none;");
 }
 
 function restart(){ //function to reload webpage
