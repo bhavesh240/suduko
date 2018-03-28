@@ -26,7 +26,6 @@ function check(getid){ // main functionto run on every keyup event
 function arrayindex(){
   for(var i=0;i<9;i++) //create 2-D array of input ids
     myarray1[i] = new Array(9);
-
     myarray1[0][0] = "r0c0"; myarray1[0][1] = "r0c1"; myarray1[0][2] = "r0c2"; myarray1[0][3] = "r0c3"; myarray1[0][4] = "r0c4";
     myarray1[0][5] = "r0c5"; myarray1[0][6] = "r0c6"; myarray1[0][7] = "r0c7"; myarray1[0][8] = "r0c8";
     myarray1[1][0] = "r1c0"; myarray1[1][1] = "r1c1"; myarray1[1][2] = "r1c2"; myarray1[1][3] = "r1c3"; myarray1[1][4] = "r1c4";
